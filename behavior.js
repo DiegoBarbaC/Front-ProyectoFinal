@@ -104,7 +104,7 @@ document.getElementById('ver-carrito').addEventListener('click', function() {
 
 // Función para cargar pedidos
 async function cargarPedidos() {
-    const response = await fetch('https://gymshark.azurewebsites.net/api/pedidos/', {
+    const response = await fetch('http://localhost:8000/api/pedidos/', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -180,7 +180,7 @@ async function guardarPedido(id) {
         precios: detallesArticulos.map(item => item.precio)
     };
 
-    const response = await fetch(`https://gymshark.azurewebsites.net/api/pedidos/${id}`, {
+    const response = await fetch(`http://localhost:8000/api/pedidos/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ async function guardarPedido(id) {
 }
 
 async function borrarPedido(id) {
-    const response = await fetch(`https://gymshark.azurewebsites.net/api/pedidos/${id}`, {
+    const response = await fetch(`http://localhost:8000/api/pedidos/${id}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -213,7 +213,7 @@ async function borrarPedido(id) {
 }
 
 async function borrarArticulo(pedidoId, articuloId) {
-    const response = await fetch(`https://gymshark.azurewebsites.net/api/pedidos/${pedidoId}/articulos/${articuloId}`, {
+    const response = await fetch(`http://localhost:8000/api/pedidos/${pedidoId}/articulos/${articuloId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -267,7 +267,7 @@ document.getElementById('realizar-pedido').addEventListener('click', async () =>
             precios: detallesArticulos.map(item => item.precio)
         };
 
-        const response = await fetch('https://gymshark.azurewebsites.net/api/pedidos/', {
+        const response = await fetch('http://localhost:8000/api/pedidos/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
